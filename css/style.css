@@ -1349,6 +1349,13 @@ body {
         align-items: stretch;
     }
 
+    #subcategoryFilter,
+    #toggleProductFilters {
+        flex: 0 0 auto;
+        width: 100%;
+        min-height: 44px;
+    }
+
     .subcategory-toolbar label {
         width: 100%;
     }
