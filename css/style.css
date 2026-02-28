@@ -292,12 +292,15 @@ body {
     justify-content: space-between;
     max-width: 1400px;
     margin: 0 auto;
+    gap: var(--spacing-sm);
 }
 
 .header-left {
     display: flex;
     align-items: center;
     gap: var(--spacing-md);
+    min-width: 0;
+    flex: 1;
 }
 
 .header-left .logo {
@@ -316,6 +319,8 @@ body {
     font-size: 20px;
     font-weight: 700;
     margin-bottom: 2px;
+    line-height: 1.25;
+    overflow-wrap: anywhere;
 }
 
 .header-subtitle {
@@ -406,6 +411,7 @@ body {
 .admin-controls {
     display: flex;
     gap: var(--spacing-md);
+    flex-wrap: wrap;
 }
 
 /* Categories Grid */
@@ -1180,7 +1186,26 @@ body {
     }
     
     .admin-controls {
-        justify-content: center;
+        justify-content: stretch;
+    }
+
+    #adminGalleryControls {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        width: 100%;
+        gap: var(--spacing-sm);
+    }
+
+    #adminGalleryControls .btn {
+        width: 100%;
+        min-width: 0;
+        white-space: normal;
+        line-height: 1.3;
+        padding: 12px;
+    }
+
+    #adminGalleryControls .btn svg {
+        flex-shrink: 0;
     }
     
     .categories-grid {
@@ -1210,6 +1235,13 @@ body {
         flex: 1 1 140px;
         max-width: none;
         min-width: 0;
+    }
+
+    #subcategoryFilter,
+    #toggleProductFilters {
+        flex: 1 1 220px;
+        min-width: 0;
+        max-width: none;
     }
 
     .custom-weight-inputs .form-input {
@@ -1269,6 +1301,19 @@ body {
 }
 
 @media (max-width: 480px) {
+    .header-content {
+        align-items: flex-start;
+    }
+
+    .header-right {
+        gap: var(--spacing-xs);
+    }
+
+    .user-role {
+        font-size: 12px;
+        padding: 2px 6px;
+    }
+
     .app-header {
         padding: var(--spacing-sm) var(--spacing-md);
     }
@@ -1279,7 +1324,33 @@ body {
     }
     
     .header-text h1 {
-        font-size: 18px;
+        font-size: 15px;
+        line-height: 1.2;
+    }
+
+    .header-subtitle {
+        font-size: 11px;
+    }
+
+    #adminGalleryControls {
+        grid-template-columns: 1fr;
+    }
+
+    .view-header {
+        gap: var(--spacing-sm);
+    }
+
+    .view-header h2 {
+        font-size: 20px;
+    }
+
+    .subcategory-toolbar {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .subcategory-toolbar label {
+        width: 100%;
     }
     
     .app-main {
